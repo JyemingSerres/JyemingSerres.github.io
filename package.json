@@ -1,7 +1,6 @@
 {
   "scripts": {
-    "start": "http-server ./src -p 0 -c-1 -o",
-    "start:build": "http-server ./docs -p 0 -c-1 -o",
+    "start": "http-server ./docs -p 0 -c-1 -o",
     "lint": "eslint ./",
     "build": "webpack --mode=development",
     "build:prod": "webpack --mode=production"
