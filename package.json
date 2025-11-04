@@ -1,9 +1,9 @@
 {
   "scripts": {
-    "start": "http-server ./docs -p 0 -c-1 -o",
+    "start": "http-server ./src -p 0 -c-1 -o",
     "lint": "eslint ./",
-    "build": "webpack --mode=development",
-    "build:prod": "webpack --mode=production"
+    "build": "webpack --mode=production",
+    "deploy": "npm run build && http-server ./docs -p 0 -c-1 -o"
   },
   "author": "Jye-Ming Serres",
   "dependencies": {
@@ -14,8 +14,7 @@
     "eslint": "^9.29.0",
     "globals": "^16.2.0",
     "html-webpack-plugin": "5.6.0",
-    "webpack": "5.93.0",
-    "webpack-cli": "5.1.4",
-    "webpack-dev-server": "5.0.4"
+    "webpack": "^5.102.1",
+    "webpack-cli": "5.1.4"
   }
 }
