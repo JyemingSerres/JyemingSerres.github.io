@@ -1,0 +1,37 @@
+.navbar-at-top {
+    background-color: transparent;
+}
+
+.front-page {
+    height: 100vh;
+    background-image: url('/assets/images/textile-enginakyurt.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.front-text-wrapper {
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    transform: translate(-50%, 30%);
+    width: 80%;
+    text-align: center;
+}
+
+.front-name {
+    font-size: 3em;
+    color: #ffffff;
+}
+
+.front-status {
+    font-size: 1.7em;
+    color:var(--theme-color-4);
+}
+
+.front-image-credit {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    font-size: 1.1em;
+    color: #ffffff70;
+}
