@@ -11,7 +11,9 @@ module.exports = {
     path: path.resolve(__dirname, "docs"),
     filename: "[name]_bundle.js",
     clean: {
-      keep: /CNAME/,
+      keep(asset) {
+        return /CNAME/.test(asset) ||  /robots.txt/.test(asset); // CNAME file is required for a custom domain with GitHub pages
+      },
     },
   },
   plugins: [
