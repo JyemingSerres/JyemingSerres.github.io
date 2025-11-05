@@ -1,20 +1,20 @@
 {
   "scripts": {
-    "start": "http-server ./src -p 0 -c-1 -o",
     "lint": "eslint ./",
-    "build": "webpack --mode=production",
-    "deploy": "npm run build && http-server ./docs -p 0 -c-1 -o"
+    "build": "webpack --config webpack.dev.js",
+    "build:prod": "webpack --config webpack.prod.js",
+    "start": "webpack serve --open --config webpack.dev.js",
+    "start:prod": "webpack serve --open --config webpack.prod.js"
   },
   "author": "Jye-Ming Serres",
-  "dependencies": {
-    "http-server": "^14.1.1"
-  },
   "devDependencies": {
     "@eslint/js": "^9.29.0",
     "eslint": "^9.29.0",
     "globals": "^16.2.0",
     "html-webpack-plugin": "5.6.0",
     "webpack": "^5.102.1",
-    "webpack-cli": "5.1.4"
+    "webpack-cli": "5.1.4",
+    "webpack-dev-server": "^5.2.2",
+    "webpack-merge": "^6.0.1"
   }
 }

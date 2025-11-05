@@ -6,15 +6,9 @@ module.exports = {
     index: path.resolve(__dirname, "src/assets/js/index.js"),
     projects: path.resolve(__dirname, "src/assets/js/projects.js"),
     resume: path.resolve(__dirname, "src/assets/js/resume.js"),
-  }, 
+  },
   output: {
-    path: path.resolve(__dirname, "docs"),
-    filename: "[name]_bundle.js",
-    clean: {
-      keep(asset) {
-        return /CNAME/.test(asset) ||  /robots.txt/.test(asset); // CNAME file is required for a custom domain with GitHub pages
-      },
-    },
+    filename: "[name].bundle.js",
   },
   plugins: [
     // copies HTML files in the destination, see https://github.com/jantimon/html-webpack-plugin
