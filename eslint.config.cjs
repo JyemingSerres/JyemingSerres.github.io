@@ -31,6 +31,6 @@ module.exports = defineConfig([
         },
     },
 	{
-        ignores: ["node_modules", "eslint.config.cjs", "webpack.config.js", "docs"],
+        ignores: ["node_modules", "eslint.config.cjs", "webpack.*.js", "docs"],
     },
 ]);
