@@ -8,6 +8,10 @@
     --theme-standard-padding: 15px;
 }
 
+* {
+    box-sizing: border-box;
+}
+
 body {
     min-height: 100vh;
     margin: 0;
