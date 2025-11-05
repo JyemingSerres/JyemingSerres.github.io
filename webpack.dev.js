@@ -2,12 +2,12 @@ const path = require("path");
 const { merge } = require("webpack-merge");
 const common = require("./webpack.common.js");
 
-const destinationName = "docsdev";
+const destinationFolder = "docsdev";
 
 module.exports = merge(common, {
   mode: "development",
   output: {
-    path: path.resolve(__dirname, destinationName),
+    path: path.resolve(__dirname, destinationFolder),
     clean: true,
   },
   module: {
@@ -20,6 +20,6 @@ module.exports = merge(common, {
   },
   devtool: "inline-source-map",
   devServer: {
-    static: destinationName,
+    static: destinationFolder,
   },
 });
