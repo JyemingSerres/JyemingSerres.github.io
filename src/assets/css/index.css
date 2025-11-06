@@ -1,13 +1,5 @@
-.navbar-at-top {
-    background-color: transparent;
-}
-
-.front-page {
-    height: 100vh;
-    background-color: var(--theme-color-1); /* temp fix */
-    /*background-image: url('/assets/images/textile-enginakyurt.jpg');*/
-    background-repeat: no-repeat;
-    background-size: cover;
+.main {
+    flex: 1;
 }
 
 .front-text-wrapper {
@@ -21,18 +13,10 @@
 
 .front-name {
     font-size: 3em;
-    color: #ffffff;
+    color: var(--theme-color-1);;
 }
 
 .front-status {
     font-size: 1.7em;
-    color:var(--theme-color-4);
-}
-
-.front-image-credit {
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
-    font-size: 1.1em;
-    color: #ffffff70;
+    color:var(--theme-color-3);
 }

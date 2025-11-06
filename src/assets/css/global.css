@@ -1,20 +1,27 @@
 :root {
     --theme-color-1: #282828;
-    --theme-color-2: #e8e8f2;
+    --theme-color-2: #bfc3d2; /*#e2e2ef*/
     --theme-color-3: #5c6582;
     --theme-color-4: #8d8b9d;
     --theme-color-5: #b4d3ff;
     
     --theme-standard-padding: 15px;
+    --theme-temp: 10%;
+}
+
+@media (max-width: 1023px) {
+    :root {
+        --theme-temp: 5%;
+    }
 }
 
 * {
     box-sizing: border-box;
+    margin: 0;
 }
 
 body {
     min-height: 100vh;
-    margin: 0;
     display: flex;
     flex-direction: column;
 }
@@ -25,19 +32,16 @@ a {
 
 .navbar {
     z-index: 1;
-    position: fixed;
-    top: 0;
-    box-sizing: border-box;
     width: 100%;
     height: 60px;
-    padding: var(--theme-standard-padding);
-    background-color: var(--theme-color-3);
-    color: #ffffff;
+    padding: var(--theme-standard-padding) var(--theme-temp);
+    background-color: var(--theme-color-2);
+    color: var(--theme-color-3);
     font-size: 1.3em;
-    transition-duration: 0.4s;
     display: flex;
     justify-content: space-between;
     align-items: center;
+
 }
 
 .navbar-section {
@@ -50,11 +54,15 @@ a {
 }
 
 .lang-button.selected {
-    color: var(--theme-color-5);
+    color: var(--theme-color-1);
 }
 
-.navbar-list {
-    margin: 0;
+.nav-link.selected {
+    color: var(--theme-color-1);
+    border-bottom: 2px solid var(--theme-color-1);
+}
+
+.navbar-nav {
     padding: 0;
     display: flex;
     list-style: none;
@@ -62,20 +70,19 @@ a {
     gap: 1em;
 }
 
-.navbar-list li {
+.nav-link {
     display: inline;
     cursor: pointer;
 }
 
-.navbar-list li a {
+.nav-link > a {
     text-decoration: inherit;
 }
 
 .main {
-    box-sizing: border-box;
     flex: 1;
-    padding: 40px;
-    background-color: var(--theme-color-2);
+    padding: var(--theme-standard-padding) var(--theme-temp);
+    background-color: #f4f4f8;
 
     display: flex;
     flex-direction: column;
@@ -83,10 +90,8 @@ a {
 }
 
 .footer {
-    box-sizing: border-box;
-    min-height: 60px;
     padding: var(--theme-standard-padding);
-    background-color: var(--theme-color-1);
-    color: #ffffff;
+    background-color: var(--theme-color-2);
+    color: var(--theme-color-3);
     text-align: center;
 }
