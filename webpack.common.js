@@ -10,8 +10,16 @@ module.exports = {
   output: {
     filename: "[name].bundle.js",
   },
+  module: {
+    rules: [
+      {
+        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        type: 'asset/resource',
+      },
+    ]
+  },
   plugins: [
-    // copies HTML files in the destination, see https://github.com/jantimon/html-webpack-plugin
+    // copies HTML files in the ouput, see https://github.com/jantimon/html-webpack-plugin
     new HTMLWebpackPlugin({
       filename: "index.html",
       template: path.resolve(__dirname, "src/index.html"),
