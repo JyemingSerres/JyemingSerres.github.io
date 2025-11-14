@@ -9,6 +9,9 @@
     transform: translate(-50%, 30%);
     width: 80%;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
 .front-name {

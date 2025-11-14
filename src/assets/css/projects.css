@@ -17,22 +17,12 @@
 }
 
 @media (max-width: 1023px) {
-    .presentation {
-        margin: 2em;
-        font-size: 1.3em;
-    }
-
     .card-wrapper { 
         grid-template-columns: repeat(2, 1fr);
     }
 }
 
 @media (max-width: 767px) {
-    .presentation {
-        margin: 1em;
-        font-size: 1em;
-    }
-
     .card-wrapper { 
         grid-template-columns: repeat(1, 1fr);
     }
