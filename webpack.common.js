@@ -8,13 +8,16 @@ module.exports = {
     resume: path.resolve(__dirname, "src/assets/js/resume.js"),
   },
   output: {
-    filename: "[name].bundle.js",
+    filename: "assets/js/[name].bundle.js",
   },
   module: {
     rules: [
       {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
         type: 'asset/resource',
+        generator: {
+          filename: 'assets/images/[hash][ext][query]',
+        },
       },
     ]
   },

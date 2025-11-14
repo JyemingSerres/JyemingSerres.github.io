@@ -21,7 +21,11 @@ module.exports = merge(common, {
       new CssMinimizerPlugin(),
     ],
   },
-  plugins: [new MiniCssExtractPlugin()],
+  plugins: [
+    new MiniCssExtractPlugin({
+      filename: 'assets/css/[name].css',
+    })
+  ],
   module: {
     rules: [
       {
