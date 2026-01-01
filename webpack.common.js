@@ -33,10 +33,5 @@ module.exports = {
       template: path.resolve(__dirname, "src/projects.html"),
       chunks: ["projects"],
     }),
-    new HTMLWebpackPlugin({
-      filename: "resume.html",
-      template: path.resolve(__dirname, "src/resume.html"),
-      chunks: ["resume"],
-    }),
   ],
 };
