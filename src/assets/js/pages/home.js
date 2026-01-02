@@ -1,6 +1,6 @@
 import "../../css/home.css";
 
-export default function home(parent) {
+export default function loadHome(parent) {
     const wrapper = document.createElement("div");
     wrapper.classList.add("front-text-wrapper");
 

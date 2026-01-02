@@ -1,14 +1,14 @@
 import "../css/global.css";
 
 import Router from "./managers/routing";
-import home from "./pages/home";
-import "./pages/projects";
+import loadHome from "./pages/home";
+import loadProjects from "./pages/projects";
 
 const content = document.getElementById("content");
 
 const router = new Router(content);
-router.addRoute("/", home);
-router.addRoute("/projects", () => {content.textContent = "projects"});
+router.addRoute("/", loadHome);
+router.addRoute("/projects", loadProjects);
 
 const elem = document.getElementById("test");
 router.addNavigation(elem, "/");
