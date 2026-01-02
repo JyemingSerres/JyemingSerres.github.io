@@ -1,16 +1,15 @@
 import "../css/global.css";
 
 import Router from "./managers/routing";
+import NavigationManager from "./managers/navigationManager";
+
 import loadHome from "./pages/home";
 import loadProjects from "./pages/projects";
 
-const content = document.getElementById("content");
 
+const content = document.getElementById("content");
 const router = new Router(content);
 router.addRoute("/", loadHome);
 router.addRoute("/projects", loadProjects);
 
-const elem = document.getElementById("test");
-router.addNavigation(elem, "/");
-const elem2 = document.getElementById("test2");
-router.addNavigation(elem2, "/projects");
+const navigation = new NavigationManager(router);
