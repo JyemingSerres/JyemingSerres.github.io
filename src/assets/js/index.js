@@ -13,3 +13,4 @@ router.addRoute("/", loadHome);
 router.addRoute("/projects", loadProjects);
 
 const navigation = new NavigationManager(router);
+navigation.initialize();

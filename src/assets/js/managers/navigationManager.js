@@ -1,15 +1,18 @@
 export default class NavigationManager {
     constructor(router) {
+        this.router = router;
         this.parent = document.querySelector(".navbar-nav");
         this.navElements = this.parent.getElementsByClassName("nav-link");
         this.selected = this.parent.querySelector(".selected");
+    }
 
+    initialize() {
         for (const navElement of this.navElements) {
             const route = navElement.dataset.route;
-            if (router.routeExists(route)) {
+            if (this.router.routeExists(route)) {
                 navElement.addEventListener("click", (event) => {
                     this.changeSelected(event.target)
-                    router.navigateTo(route);
+                    this.router.navigateTo(route);
                 });
             }
         }
