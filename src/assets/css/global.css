@@ -68,7 +68,7 @@ a {
     display: flex;
     list-style: none;
     justify-content: right;
-    gap: 1rem;
+    gap: 1.2rem;
 }
 
 .nav-link {
