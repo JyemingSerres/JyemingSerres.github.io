@@ -9,6 +9,7 @@ function importAll(r) {
 }
 
 // imports all images links, see https://webpack.js.org/guides/dependency-management/#context-module-api
+// eslint-disable-next-line no-undef
 importAll(require.context("../../data/projects/images/", false, /\.png$/));
 
 

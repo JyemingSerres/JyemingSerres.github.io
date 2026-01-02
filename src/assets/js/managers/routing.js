@@ -7,7 +7,7 @@ export default class Router {
 
     addRoute(route, pageChange) {
         this.routes.set(route, pageChange);
-        if (this.routes.size == 1) {
+        if (this.routes.size === 1) {
             this.navigateTo(route);
         }
     }
