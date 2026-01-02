@@ -19,3 +19,13 @@
     font-size: 1.7em;
     color:var(--theme-color-3);
 }
+
+@media (max-width: 767px) {
+    .front-name {
+        font-size: 2.2em;
+    }
+
+    .front-status {
+        font-size: 1.2em;
+    }
+}
