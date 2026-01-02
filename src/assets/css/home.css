@@ -11,21 +11,21 @@
 }
 
 .front-name {
-    font-size: 3em;
+    font-size: 3rem;
     color: var(--theme-color-1);;
 }
 
 .front-status {
-    font-size: 1.7em;
+    font-size: 1.7rem;
     color:var(--theme-color-3);
 }
 
 @media (max-width: 767px) {
     .front-name {
-        font-size: 2.2em;
+        font-size: 2.2rem;
     }
 
     .front-status {
-        font-size: 1.2em;
+        font-size: 1.2rem;
     }
 }
