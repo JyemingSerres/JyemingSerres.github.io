@@ -4,11 +4,9 @@ const HTMLWebpackPlugin = require("html-webpack-plugin");
 module.exports = {
   entry:  {
     index: path.resolve(__dirname, "src/assets/js/index.js"),
-    projects: path.resolve(__dirname, "src/assets/js/projects.js"),
-    resume: path.resolve(__dirname, "src/assets/js/resume.js"),
   },
   output: {
-    filename: "assets/js/[name].bundle.js",
+    filename: "assets/js/[name].[hash].js",
   },
   module: {
     rules: [
@@ -27,11 +25,6 @@ module.exports = {
       filename: "index.html",
       template: path.resolve(__dirname, "src/index.html"),
       chunks: ["index"],
-    }),
-    new HTMLWebpackPlugin({
-      filename: "projects.html",
-      template: path.resolve(__dirname, "src/projects.html"),
-      chunks: ["projects"],
     }),
   ],
 };
