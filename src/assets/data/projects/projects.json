@@ -4,5 +4,11 @@
         "imageFileName" : "projection-of-3D-shapes.png",
         "githubLink" : "https://github.com/JyemingSerres/projection-of-3D-shapes",
         "stack" : ["python"]
+    },
+    {
+        "projectName" : "test project name",
+        "imageFileName" : "default.png",
+        "githubLink" : "valid link",
+        "stack" : ["short", "something long", "some tech"]
     }
 ]
