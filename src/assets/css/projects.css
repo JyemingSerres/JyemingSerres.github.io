@@ -37,15 +37,18 @@
 }
 
 .card-info-desc {
+    text-align: justify;
     color: var(--theme-color-3);
-    padding-left: 5px;
-    flex: 1;
 }
 
 .card-info-stack {
     display: flex;
     flex-wrap: wrap;
     gap: 5px;
+}
+
+.card-info-desc, .card-info-stack {
+    padding-left: 5px;
 }
 
 .card-info-stack > * {
