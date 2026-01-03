@@ -5,8 +5,8 @@ export default class Router {
         this.content = content;
     }
 
-    addRoute(route, pageChange) {
-        this.routes.set(route, pageChange);
+    addRoute(route, loader) {
+        this.routes.set(route, loader);
         if (this.routes.size === 1) {
             this.navigateTo(route);
         }
