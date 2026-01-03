@@ -1,14 +1,16 @@
 [
     {
-        "projectName" : "Projection of 3D shapes",
-        "imageFileName" : "projection-of-3D-shapes.png",
-        "githubLink" : "https://github.com/JyemingSerres/projection-of-3D-shapes",
-        "stack" : ["python"]
+        "title" : "Portfolio website",
+        "description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "imageFileName" : "portfolio-website.png",
+        "githubLink" : "https://github.com/JyemingSerres/JyemingSerres.github.io",
+        "stack" : ["HTML", "CSS", "JS", "Webpack"]
     },
     {
-        "projectName" : "test project name",
-        "imageFileName" : "default.png",
-        "githubLink" : "valid link",
-        "stack" : ["short", "something long", "some tech"]
+        "title" : "Projection of 3D shapes",
+        "description" : "The goal of this exercise is to display 3D shapes onto a 2D screen. Using mouse and keyboard inputs, the user is able to travel across space to inspect objects at various angles.",
+        "imageFileName" : "projection-of-3D-shapes.png",
+        "githubLink" : "https://github.com/JyemingSerres/projection-of-3D-shapes",
+        "stack" : ["Python"]
     }
 ]

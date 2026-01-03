@@ -2,6 +2,7 @@ import "../../css/projects.css";
 
 import projects from "../../data/projects/projects.json";
 
+
 const cache = {};
 
 function importAll(r) {
@@ -10,7 +11,7 @@ function importAll(r) {
 
 // imports all images links, see https://webpack.js.org/guides/dependency-management/#context-module-api
 // eslint-disable-next-line no-undef
-importAll(require.context("../../data/projects/images/", false, /\.png$/));
+importAll(require.context("../../data/projects/images/", false, /\.(png|jpg|jpeg)$/));
 
 
 export default function loadProjects(parent) {
@@ -26,7 +27,7 @@ export default function loadProjects(parent) {
 }
 
 function createCard(project) {
-    const card = document.createElement("div");
+    const card = document.createElement("article");
     card.classList.add("card");
 
     const imgSection = createImgSection(project);
@@ -56,12 +57,12 @@ function createInfoSection(project) {
 
     const infoTitle = document.createElement("p");
     infoTitle.classList.add("card-info-title");
-    infoTitle.textContent = project.projectName;
+    infoTitle.textContent = project.title;
     info.appendChild(infoTitle);
 
     const infoDescription = document.createElement("p");
     infoDescription.classList.add("card-info-desc");
-    infoDescription.textContent = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
+    infoDescription.textContent = project.description;
     info.appendChild(infoDescription);
 
     const infoStack = document.createElement("div");
