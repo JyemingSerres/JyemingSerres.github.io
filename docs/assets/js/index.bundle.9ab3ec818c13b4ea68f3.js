@@ -1,10 +1,36 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
-/***/ 166:
+/***/ 13:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+module.exports = __webpack_require__.p + "assets/images/b2596fbcb8ffd1d70588.jpg";
+
+/***/ }),
+
+/***/ 170:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+module.exports = __webpack_require__.p + "assets/images/42faa722ff22dfd1a095.png";
+
+/***/ }),
+
+/***/ 666:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+module.exports = __webpack_require__.p + "assets/images/c919b2c0f6cc0f913c3c.png";
+
+/***/ }),
+
+/***/ 868:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 var map = {
+	"./default.jpg": 13,
+	"./portfolio-website.png": 666,
 	"./projection-of-3D-shapes.png": 170
 };
 
@@ -26,15 +52,7 @@ webpackContext.keys = function webpackContextKeys() {
 };
 webpackContext.resolve = webpackContextResolve;
 module.exports = webpackContext;
-webpackContext.id = 166;
-
-/***/ }),
-
-/***/ 170:
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-"use strict";
-module.exports = __webpack_require__.p + "assets/images/42faa722ff22dfd1a095.png";
+webpackContext.id = 868;
 
 /***/ })
 
@@ -118,8 +136,8 @@ class Router {
         this.content = content;
     }
 
-    addRoute(route, pageChange) {
-        this.routes.set(route, pageChange);
+    addRoute(route, loader) {
+        this.routes.set(route, loader);
         if (this.routes.size === 1) {
             this.navigateTo(route);
         }
@@ -192,8 +210,9 @@ function loadHome(parent) {
     parent.appendChild(wrapper);
 }
 ;// ./src/assets/data/projects/projects.json
-const projects_namespaceObject = /*#__PURE__*/JSON.parse('[{"projectName":"Projection of 3D shapes","imageFileName":"projection-of-3D-shapes.png","githubLink":"https://github.com/JyemingSerres/projection-of-3D-shapes","stack":["python"]},{"projectName":"test project name","imageFileName":"default.png","githubLink":"valid link","stack":["short","something long","some tech"]}]');
+const projects_namespaceObject = /*#__PURE__*/JSON.parse('[{"title":"Portfolio website","description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit.","imageFileName":"portfolio-website.png","githubLink":"https://github.com/JyemingSerres/JyemingSerres.github.io","stack":["HTML","CSS","JS","Webpack"]},{"title":"Projection of 3D shapes","description":"The goal of this exercise is to display 3D shapes onto a 2D screen. Using mouse and keyboard inputs, the user is able to travel across space to inspect objects at various angles.","imageFileName":"projection-of-3D-shapes.png","githubLink":"https://github.com/JyemingSerres/projection-of-3D-shapes","stack":["Python"]}]');
 ;// ./src/assets/js/pages/projects.js
+
 
 
 
@@ -206,7 +225,7 @@ function importAll(r) {
 
 // imports all images links, see https://webpack.js.org/guides/dependency-management/#context-module-api
 // eslint-disable-next-line no-undef
-importAll(__webpack_require__(166));
+importAll(__webpack_require__(868));
 
 
 function loadProjects(parent) {
@@ -222,7 +241,7 @@ function loadProjects(parent) {
 }
 
 function createCard(project) {
-    const card = document.createElement("div");
+    const card = document.createElement("article");
     card.classList.add("card");
 
     const imgSection = createImgSection(project);
@@ -252,12 +271,12 @@ function createInfoSection(project) {
 
     const infoTitle = document.createElement("p");
     infoTitle.classList.add("card-info-title");
-    infoTitle.textContent = project.projectName;
+    infoTitle.textContent = project.title;
     info.appendChild(infoTitle);
 
     const infoDescription = document.createElement("p");
     infoDescription.classList.add("card-info-desc");
-    infoDescription.textContent = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
+    infoDescription.textContent = project.description;
     info.appendChild(infoDescription);
 
     const infoStack = document.createElement("div");
