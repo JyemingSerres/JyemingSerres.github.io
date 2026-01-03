@@ -6,7 +6,7 @@ module.exports = {
     index: path.resolve(__dirname, "src/assets/js/index.js"),
   },
   output: {
-    filename: "assets/js/[name].[hash].js",
+    filename: "assets/js/[name].bundle.[hash].js",
   },
   module: {
     rules: [
