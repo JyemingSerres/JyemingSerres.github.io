@@ -8,7 +8,7 @@
     aspect-ratio: 9/10;
     max-width: 100%;
     background-color: #fff;
-    border: 2px solid var(--theme-color-2);
+    box-shadow: 0px 0px 10px 3px #d4d4d4;
 }
 
 .card-img-container {
@@ -19,7 +19,7 @@
 .card-img-container > img {
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    object-fit: cover;
 }
 
 .card-info {
@@ -45,10 +45,6 @@
     display: flex;
     flex-wrap: wrap;
     gap: 5px;
-}
-
-.card-info-desc, .card-info-stack {
-    padding-left: 5px;
 }
 
 .card-info-stack > * {
