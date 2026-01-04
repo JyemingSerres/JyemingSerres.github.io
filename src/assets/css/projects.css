@@ -67,6 +67,7 @@
     border: 1px solid var(--theme-color-3);
     border-radius: 3px;
     color: var(--theme-color-3);
+    text-decoration: none;
     min-height: 15%;
     min-width: 30%;
     position: absolute;
@@ -87,7 +88,6 @@
 .github-icon {
     max-height: 0.75em;
 }
-
 
 
 @media (max-width: 1023px) {

@@ -87,6 +87,8 @@ function createGithubButton(uri) {
 
     const button = document.createElement("a");
     button.classList.add("github-url");
+    button.href = uri;
+    button.target = "_blank";
 
     const icon = document.createElementNS(namespace, "svg");
     icon.classList.add("github-icon");
