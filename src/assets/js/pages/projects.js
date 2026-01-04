@@ -55,10 +55,20 @@ function createInfoSection(project) {
     const info = document.createElement("div");
     info.classList.add("card-info");
 
-    const infoTitle = document.createElement("p");
+    const head = document.createElement("div");
+    head.classList.add("card-info-head");
+
+    const infoTitle = document.createElement("span");
     infoTitle.classList.add("card-info-title");
     infoTitle.textContent = project.title;
-    info.appendChild(infoTitle);
+    head.appendChild(infoTitle);
+
+    const infoDate = document.createElement("span");
+    infoDate.classList.add("card-info-date");
+    infoDate.textContent = project.year;
+    head.appendChild(infoDate);
+
+    info.appendChild(head);
 
     const infoDescription = document.createElement("p");
     infoDescription.classList.add("card-info-desc");
