@@ -11,6 +11,12 @@
     box-shadow: 0px 0px 10px 3px #d4d4d4;
 }
 
+.card:hover {
+    position: relative;
+    bottom: 2px;
+    right: 2px;
+}
+
 .card-img-container {
     aspect-ratio: 9/5;
     max-width: 100%;
@@ -25,6 +31,7 @@
 .card-info {
     height: 50%;
     padding: 10px;
+    position: relative;
 
     display: flex;
     flex-direction: column;
@@ -55,11 +62,33 @@
     font-size: 0.9rem;
 }
 
-.card:hover {
-    position: relative;
-    bottom: 2px;
-    right: 2px;
+.github-url {
+    background-color: var(--theme-color-7);
+    border: 1px solid var(--theme-color-3);
+    border-radius: 3px;
+    color: var(--theme-color-3);
+    min-height: 15%;
+    min-width: 30%;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
 }
+
+.github-url:hover {
+    background-color: var(--theme-color-6);
+    cursor: pointer;
+}
+
+.github-icon {
+    max-height: 0.75em;
+}
+
+
 
 @media (max-width: 1023px) {
     .card-wrapper { 
@@ -83,4 +112,9 @@
     .card-info-stack > * {
         font-size: 0.7rem;
     }
+
+    .github-url {
+        font-size: 0.8rem;
+    }
+
 }
