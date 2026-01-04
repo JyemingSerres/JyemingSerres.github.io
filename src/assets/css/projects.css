@@ -1,3 +1,7 @@
+:root {
+    --theme-card-padding: 10px;
+}
+
 .card-wrapper {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -9,12 +13,11 @@
     max-width: 100%;
     background-color: #fff;
     box-shadow: 0px 0px 10px 3px #d4d4d4;
+    position: relative;
 }
 
 .card:hover {
-    position: relative;
-    bottom: 2px;
-    right: 2px;
+    bottom: 4px;
 }
 
 .card-img-container {
@@ -30,7 +33,7 @@
 
 .card-info {
     height: 50%;
-    padding: 10px;
+    padding: var(--theme-card-padding);
     position: relative;
 
     display: flex;
@@ -69,15 +72,14 @@
 
 .github-url {
     background-color: var(--theme-color-7);
-    border: 1px solid var(--theme-color-3);
     border-radius: 3px;
-    color: var(--theme-color-3);
+    color: var(--theme-color-4);
     text-decoration: none;
     min-height: 15%;
     min-width: 30%;
     position: absolute;
-    bottom: 10px;
-    right: 10px;
+    bottom: var(--theme-card-padding);
+    right: var(--theme-card-padding);
 
     display: flex;
     justify-content: center;
@@ -86,12 +88,13 @@
 }
 
 .github-url:hover {
-    background-color: var(--theme-color-6);
+    background-color: var(--theme-color-8);
     cursor: pointer;
 }
 
 .github-icon {
     max-height: 0.75em;
+    margin-top: 0.1em;
 }
 
 
