@@ -1,8 +1,8 @@
 export default class Router {
-    constructor(content) {
+    constructor(pageContent) {
         this.routes = new Map();
         this.page = null;
-        this.content = content;
+        this.pageContent = pageContent;
     }
 
     addRoute(route, loader) {
@@ -14,8 +14,8 @@ export default class Router {
 
     navigateTo(route) {
         if (this.#changePage(route)) {
-            this.content.innerHTML = "";
-            this.routes.get(this.page)(this.content);
+            this.pageContent.innerHTML = "";
+            this.routes.get(this.page)(this.pageContent);
         }
     }
 
