@@ -1,8 +1,9 @@
 export default class Router {
-    constructor(pageContent) {
+    constructor(contentDest) {
+        this.contentDest = contentDest;
         this.routes = new Map();
-        this.page = null;
-        this.pageContent = pageContent;
+        this.pageCache = new Map();
+        this.currentPage = null;
     }
 
     addRoute(route, loader) {
@@ -11,22 +12,26 @@ export default class Router {
             this.navigateTo(route);
     }
 
-    navigateTo(route) {
-        if (this.#changePage(route)) {
-            this.pageContent.innerHTML = "";
-            this.routes.get(this.page)(this.pageContent);
-        }
-    }
-
     routeExists(route) {
         return this.routes.has(route);
     }
 
-    #changePage(route) {
-        if (!this.routeExists(route)) return false;
-        if (this.page === route) return false;
+    navigateTo(route) {
+        if (!this.routeExists(route)) return;
+        if (this.currentPage === route) return;
         
-        this.page = route;
-        return true;
+        this.currentPage = route;
+        this.#update();
+    }
+
+    #update() {
+        this.contentDest.innerHTML = "";
+        if (this.pageCache.has(this.currentPage)) {
+            this.contentDest.appendChild(this.pageCache.get(this.currentPage));
+        } else {
+            const theContent = this.routes.get(this.currentPage)();
+            this.pageCache.set(this.currentPage, theContent);
+            this.contentDest.appendChild(theContent);
+        }
     }
 }
