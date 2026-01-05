@@ -14,7 +14,7 @@ function importAll(r) {
 importAll(require.context("../../data/projects/images/", false, /\.(png|jpg|jpeg)$/));
 
 
-export default function loadProjects(parent) {
+export default function loadProjects() {
     const wrapper = document.createElement("div");
     wrapper.classList.add("card-wrapper");
 
@@ -23,7 +23,7 @@ export default function loadProjects(parent) {
         wrapper.appendChild(card);
     }
 
-    parent.appendChild(wrapper);
+    return wrapper;
 }
 
 function createCard(project) {

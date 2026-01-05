@@ -3,7 +3,7 @@ import "../../css/home.css";
 import { TRANSLATE_KEY } from "../managers/translator.js";
 
 
-export default function loadHome(parent) {
+export default function loadHome() {
     const wrapper = document.createElement("div");
     wrapper.classList.add("front-text-wrapper");
 
@@ -17,5 +17,5 @@ export default function loadHome(parent) {
     status.dataset[TRANSLATE_KEY] = "home-status";
     wrapper.appendChild(status);
 
-    parent.appendChild(wrapper);
+    return wrapper;
 }
