@@ -8,15 +8,18 @@ import loadHome from "./pages/home.js";
 import loadProjects from "./pages/projects.js";
 
 
-const pageContent = document.getElementById("content");
-const router = new Router(pageContent);
+const contentDest = document.getElementById("content");
+const router = new Router(contentDest);
 router.addRoute("/", loadHome);
 router.addRoute("/projects", loadProjects);
+
+const translator = new Translator(router);
 
 const navigationSelector = new Selector("nav-link", "route");
 navigationSelector.setAction((route) => router.navigateTo(route));
 
 const languageSelector = new Selector("lang-button", "lang");
-const translator = new Translator(languageSelector.getOptions());
 languageSelector.setAction((lang) => translator.changeLang(lang));
 languageSelector.setDefault(translator.lang);
+
+
