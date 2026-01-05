@@ -4,14 +4,12 @@ import translationData from "../../data/translations.json";
 export const TRANSLATE_KEY = "trnsl";
 
 export default class Translator {
-    constructor(router) {
-        this.router = router;
-
+    constructor() {
         this.languages = ["en", "fr"];
         this.lang = document.querySelector("html").lang;
 
         this.#matchBrowserLang();
-        this.#updateAllTexts();
+        this.updateDomTexts();
     }
 
     changeLang(newLang) {
@@ -19,7 +17,7 @@ export default class Translator {
         if (newLang === this.lang) return;
 
         this.lang = newLang;
-        this.#updateAllTexts();
+        this.updateDomTexts();
     }
 
     #matchBrowserLang() {
@@ -30,15 +28,11 @@ export default class Translator {
         }
     }
 
-    #updateAllTexts() {
-        this.#updateTexts(document);
-        for (const route of this.router.pageCache.keys()) {
-            if (this.router.currentPage !== route)
-                this.#updateTexts(this.router.pageCache.get(route));
-        }
+    updateDomTexts() {
+        this.updateTexts(document);
     }
 
-    #updateTexts(parent) {
+    updateTexts(parent) {
         const elements = parent.querySelectorAll("[data-" + TRANSLATE_KEY + "]");
         for (const element of elements) {
             const key = element.dataset[TRANSLATE_KEY];
