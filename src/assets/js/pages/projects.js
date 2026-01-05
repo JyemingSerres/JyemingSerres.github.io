@@ -77,11 +77,11 @@ function createInfoSection(project) {
     infoDescription.textContent = project.description;
     info.appendChild(infoDescription);
 
-    const infoStack = document.createElement("div");
+    const infoStack = document.createElement("ul");
     infoStack.classList.add("card-info-stack");
 
     for (const tech of project.stack) {
-        const pill = document.createElement("div");
+        const pill = document.createElement("li");
         pill.textContent = tech;
         infoStack.appendChild(pill);
     }

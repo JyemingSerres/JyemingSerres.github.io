@@ -77,10 +77,6 @@ a {
     cursor: pointer;
 }
 
-.nav-link > a {
-    text-decoration: inherit;
-}
-
 .main {
     flex: 1;
     padding: var(--theme-main-padding) var(--theme-side-padding);
