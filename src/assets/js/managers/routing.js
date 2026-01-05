@@ -7,9 +7,8 @@ export default class Router {
 
     addRoute(route, loader) {
         this.routes.set(route, loader);
-        if (this.routes.size === 1) {
+        if (this.routes.size === 1)
             this.navigateTo(route);
-        }
     }
 
     navigateTo(route) {
@@ -20,12 +19,13 @@ export default class Router {
     }
 
     routeExists(route) {
-        return this.routes.get(route) !== undefined;
+        return this.routes.has(route);
     }
 
     #changePage(route) {
-        if (!this.routeExists(route) || this.page === route)
-            return false;
+        if (!this.routeExists(route)) return false;
+        if (this.page === route) return false;
+        
         this.page = route;
         return true;
     }
