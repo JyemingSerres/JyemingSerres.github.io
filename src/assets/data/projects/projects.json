@@ -1,18 +1,21 @@
 [
     {
-        "title" : "Portfolio website",
-        "description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-        "year" : "2026",
-        "imageFileName" : "portfolio-website.png",
-        "githubLink" : "https://github.com/JyemingSerres/JyemingSerres.github.io",
-        "stack" : ["HTML", "CSS", "JS", "Webpack"]
-    },
-    {
-        "title" : "Projection of 3D shapes",
-        "description" : "The goal of this exercise is to display 3D shapes onto a 2D screen. Using mouse and keyboard inputs, the user is able to travel across space to inspect objects at various angles.",
+        "id" : 1,
+        "title" : "001-title",
+        "description" : "001-description",
         "year" : "2025",
         "imageFileName" : "projection-of-3D-shapes.png",
         "githubLink" : "https://github.com/JyemingSerres/projection-of-3D-shapes",
         "stack" : ["Python"]
+    },
+    {
+        "id" : 2,
+        "title" : "002-title",
+        "description" : "002-description",
+        "year" : "2026",
+        "imageFileName" : "portfolio-website.png",
+        "githubLink" : "https://github.com/JyemingSerres/JyemingSerres.github.io",
+        "stack" : ["HTML", "CSS", "JS", "Webpack"]
     }
+
 ]

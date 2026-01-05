@@ -22,7 +22,7 @@ export default function loadProjects() {
 
     for (const project of projects) {
         const card = createCard(project);
-        wrapper.appendChild(card);
+        wrapper.prepend(card);
     }
 
     return wrapper;
@@ -62,7 +62,7 @@ function createInfoSection(project) {
 
     const infoTitle = document.createElement("span");
     infoTitle.classList.add("card-info-title");
-    infoTitle.textContent = project.title;
+    infoTitle.dataset[TRANSLATE_KEY] = project.title;
     head.appendChild(infoTitle);
 
     const infoDate = document.createElement("span");
@@ -74,7 +74,7 @@ function createInfoSection(project) {
 
     const infoDescription = document.createElement("p");
     infoDescription.classList.add("card-info-desc");
-    infoDescription.textContent = project.description;
+    infoDescription.dataset[TRANSLATE_KEY] = project.description;
     info.appendChild(infoDescription);
 
     const infoStack = document.createElement("ul");
