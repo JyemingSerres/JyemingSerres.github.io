@@ -2,6 +2,8 @@ import "../../css/projects.css";
 
 import projects from "../../data/projects/projects.json";
 
+import { TRANSLATE_KEY } from "../managers/translator.js";
+
 
 const cache = {};
 
@@ -112,8 +114,8 @@ function createGithubButton(uri) {
 
     button.appendChild(icon);
 
-    const temp = document.createDocumentFragment()
-    temp.textContent = "source code";
-    button.appendChild(temp);
+    const buttonText = document.createElement("span");
+    buttonText.dataset[TRANSLATE_KEY] = "github-proj-button-text";
+    button.appendChild(buttonText);
     return button;
 }
