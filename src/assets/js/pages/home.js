@@ -1,5 +1,8 @@
 import "../../css/home.css";
 
+import { TRANSLATE_KEY } from "../managers/translator.js";
+
+
 export default function loadHome(parent) {
     const wrapper = document.createElement("div");
     wrapper.classList.add("front-text-wrapper");
@@ -11,7 +14,7 @@ export default function loadHome(parent) {
 
     const status = document.createElement("div");
     status.classList.add("front-status");
-    status.textContent = "Étudiant en génie logiciel à Polytechnique Montréal"; // TODO: i18n
+    status.dataset[TRANSLATE_KEY] = "home-status";
     wrapper.appendChild(status);
 
     parent.appendChild(wrapper);

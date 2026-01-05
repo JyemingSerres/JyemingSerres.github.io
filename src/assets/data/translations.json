@@ -1,0 +1,12 @@
+{
+    "en" : {
+        "nav-home" : "Home",
+        "nav-projects" : "Projects",
+        "home-status" : "Software engineering student at Polytechnique Montréal"
+    },
+    "fr" : {
+        "nav-home" : "Accueil",
+        "nav-projects" : "Projets",
+        "home-status" : "Étudiant en génie logiciel à Polytechnique Montréal"
+    }
+}

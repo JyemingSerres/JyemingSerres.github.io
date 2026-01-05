@@ -15,11 +15,32 @@ export default class Selector {
         }
     }
 
-    #changeSelected(target) {
-        if (target !== this.selected) {
-            this.selected.classList.remove("selected");
-            target.classList.add("selected");
-            this.selected = target;
+    setDefault(val) {
+        if (this.selected) return;
+
+        for (const navElement of this.navElements) {
+            if (navElement.dataset[this.dataKey] === val) {
+                this.#changeSelected(navElement);
+                break;
+            }
         }
+    }
+
+    getOptions() {
+        const options = new Set();
+
+        for (const navElement of this.navElements)
+            options.add(navElement.dataset[this.dataKey])
+
+        return options
+    }
+
+    #changeSelected(target) {
+        if (target === this.selected) return;
+
+        if (this.selected)
+            this.selected.classList.remove("selected");
+        target.classList.add("selected");
+        this.selected = target;
     }
 }
