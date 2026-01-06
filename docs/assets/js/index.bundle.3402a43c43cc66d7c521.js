@@ -130,30 +130,46 @@ webpackContext.id = 868;
 
 ;// ./src/assets/js/managers/routing.js
 class Router {
+    /**
+     * @param {HTMLElement|null} contentDest - DOM element where the page will be inserted.
+     */
     constructor(contentDest) {
         this.contentDest = contentDest;
         this.routes = new Map();
         this.currentRoute = null;
     }
 
+    /**
+     * Adds a new route to a page.
+     * @param {string} route - The new route.
+     * @param {Page} page - The page.
+     * @returns {void}
+     */
     addRoute(route, page) {
         this.routes.set(route, page);
         if (this.routes.size === 1)
             this.navigateTo(route);
     }
 
-    routeExists(route) {
-        return this.routes.has(route);
-    }
-
+    /**
+     * Navigates to the new route and updates the content on success.
+     * @param {string} route - The route.
+     * @returns {void}
+     * @throws An error if the route doesn't exist.
+     */
     navigateTo(route) {
-        if (!this.routeExists(route)) return;
+        if (!this.routes.has(route)) throw new Error("'" + route + "' is not a route that exists.");
         if (this.currentRoute === route) return;
         
         this.currentRoute = route;
         this.#update();
     }
 
+    /**
+     * Updates the content to the current page.
+     * @private
+     * @returns {void}
+     */
     #update() {
         this.contentDest.innerHTML = "";
         const theContent = this.routes.get(this.currentRoute).getContent();
@@ -163,22 +179,35 @@ class Router {
 
 ;// ./src/assets/js/managers/selector.js
 class Selector {
+    /**
+     * @param {string} htmlClass - The HTML class unique to the set of elements to select from.
+     * @param {string} dataKey - The key to the relevant data of the elements.
+     */
     constructor(htmlClass, dataKey) {
         this.navElements = document.querySelectorAll("." + htmlClass);
         this.selected = this.navElements.values().find((element) => element.classList.contains("selected"));
         this.dataKey = dataKey;
     }
 
+    /**
+     * Sets the action for when an element is clicked.
+     * @param {function} action - The function to call with the selected element's data.
+     * @returns {void}
+     */
     setAction(action) {
         for (const navElement of this.navElements) {
-            const data = navElement.dataset[this.dataKey];
-            navElement.addEventListener("click", (event) => {
-                this.#changeSelected(event.target)
-                action(data);
+            navElement.addEventListener("click", () => {
+                this.#changeSelected(navElement)
+                action(navElement.dataset[this.dataKey]);
             });
         }
     }
 
+    /**
+     * Selects the element matching the value if nothing is selected.
+     * @param {string} val - The value to match.
+     * @returns {void}
+     */
     setDefault(val) {
         if (this.selected) return;
 
@@ -190,15 +219,12 @@ class Selector {
         }
     }
 
-    getOptions() {
-        const options = new Set();
-
-        for (const navElement of this.navElements)
-            options.add(navElement.dataset[this.dataKey])
-
-        return options
-    }
-
+    /**
+     * Changes the selected element.
+     * @private
+     * @param {Element} target - The element to be selected.
+     * @returns {void}
+     */
     #changeSelected(target) {
         if (target === this.selected) return;
 
@@ -208,8 +234,9 @@ class Selector {
         this.selected = target;
     }
 }
+
 ;// ./src/assets/data/translations.json
-const translations_namespaceObject = /*#__PURE__*/JSON.parse('{"en":{"nav-home":"Home","nav-projects":"Projects","home-status":"Software engineering student at Polytechnique Montréal","github-proj-button-text":"source code","001-title":"Projection of 3D Shapes","001-description":"The goal of this exercise is to display 3D shapes onto a 2D screen. Using mouse and keyboard inputs, the user is able to traverse space to inspect objects at various angles.","002-title":"Portfolio Website","002-description":"A single-page website to present my different personnal projects."},"fr":{"nav-home":"Accueil","nav-projects":"Projets","home-status":"Étudiant en génie logiciel à Polytechnique Montréal","github-proj-button-text":"code source","001-title":"Projection de formes 3D","001-description":"Le but de cet exercice est d\'afficher des formes 3D sur un écran 2D. En utilisant la souris et le clavier, l\'utilisateur peut parcourir l\'espace afin d\'examiner les objects sous différents angles.","002-title":"Site web portfolio","002-description":"Un site web monopage pour présenter mes différents projets personnels"}}');
+const translations_namespaceObject = /*#__PURE__*/JSON.parse('{"en":{"nav-home":"Home","nav-projects":"Projects","home-status":"Software engineering student at Polytechnique Montréal","github-proj-button-text":"source code","001-title":"Projection of 3D Shapes","001-description":"The goal of this exercise is to display 3D shapes onto a 2D screen. Using mouse and keyboard inputs, the user is able to traverse space to inspect objects at various angles.","002-title":"Portfolio Website","002-description":"A single-page website to present my personnal projects."},"fr":{"nav-home":"Accueil","nav-projects":"Projets","home-status":"Étudiant en génie logiciel à Polytechnique Montréal","github-proj-button-text":"code source","001-title":"Projection de formes 3D","001-description":"Le but de cet exercice est d\'afficher des formes 3D sur un écran 2D. En utilisant la souris et le clavier, l\'utilisateur peut parcourir l\'espace afin d\'examiner les objects sous différents angles.","002-title":"Site web portfolio","002-description":"Un site web monopage pour présenter mes projets personnels"}}');
 ;// ./src/assets/js/managers/translator.js
 
 
@@ -221,10 +248,15 @@ class Translator {
         this.languages = ["en", "fr"];
         this.lang = document.querySelector("html").lang;
 
-        this.#matchBrowserLang();
+        this.#selectBrowserLang();
         this.updateDomTexts();
     }
 
+    /**
+     * Attempts to change the current language and updates the DOM on success.
+     * @param {string} newLang - The new language.
+     * @returns {void}
+     */
     changeLang(newLang) {
         if (!this.languages.includes(newLang)) return;
         if (newLang === this.lang) return;
@@ -233,7 +265,12 @@ class Translator {
         this.updateDomTexts();
     }
 
-    #matchBrowserLang() {
+    /**
+     * Selects the browser's most preferred language if possible.
+     * @private
+     * @returns {void}
+     */
+    #selectBrowserLang() {
         for (const language of navigator.languages) {
             const candidate = language.split("-")[0];
             if (this.languages.includes(candidate) && candidate !== this.lang)
@@ -241,10 +278,19 @@ class Translator {
         }
     }
 
+    /**
+     * Updates texts currently in the DOM.
+     * @returns {void}
+     */
     updateDomTexts() {
         this.updateTexts(document);
     }
 
+    /**
+     * Updates the elements affected by i18n within a parent element with to the current language.
+     * @param {HTMLElement} parent - The parent element to update.
+     * @returns {void}
+     */
     updateTexts(parent) {
         const elements = parent.querySelectorAll("[data-" + TRANSLATE_KEY + "]");
         for (const element of elements) {
@@ -256,6 +302,10 @@ class Translator {
 
 ;// ./src/assets/js/pages/page.js
 class Page {
+    /**
+     * @param {function} loader
+     * @param {Translator} translator
+     */
     constructor(loader, translator) {
         this.loader = loader;
         this.cache = undefined;
@@ -263,6 +313,10 @@ class Page {
         this.lang = undefined;
     }
 
+    /**
+     * Generates the page or retrieves it from the cache. Language is updated.
+     * @returns {HTMLElement} Element of the page.
+     */
     getContent() {
         if (this.cache === undefined)
             this.cache = this.loader();
@@ -270,18 +324,28 @@ class Page {
         return this.cache;
     }
 
+    /**
+     * Updates the page's texts with the correct language if needed.
+     * @private
+     * @returns {void}
+     */
     #updateLang() {
         if (this.lang === this.translator.lang) return;
         
         this.translator.updateTexts(this.cache);
     }
 }
+
 ;// ./src/assets/js/pages/home.js
 
 
 
 
 
+/**
+ * Generates the Home page.
+ * @returns {HTMLDivElement} Element containing the page's content.
+ */
 function loadHome() {
     const wrapper = document.createElement("div");
     wrapper.classList.add("front-text-wrapper");
@@ -298,6 +362,7 @@ function loadHome() {
 
     return wrapper;
 }
+
 ;// ./src/assets/data/projects/projects.json
 const projects_namespaceObject = /*#__PURE__*/JSON.parse('[{"id":1,"title":"001-title","description":"001-description","year":"2025","imageFileName":"projection-of-3D-shapes.png","githubLink":"https://github.com/JyemingSerres/projection-of-3D-shapes","stack":["Python"]},{"id":2,"title":"002-title","description":"002-description","year":"2026","imageFileName":"portfolio-website.png","githubLink":"https://github.com/JyemingSerres/JyemingSerres.github.io","stack":["HTML","CSS","JS","Webpack"]}]');
 ;// ./src/assets/js/pages/projects.js
@@ -313,12 +378,26 @@ const cache = {};
 function importAll(r) {
     r.keys().forEach((key) => (cache[key] = r(key)));
 }
-
-// imports all images links, see https://webpack.js.org/guides/dependency-management/#context-module-api
-// eslint-disable-next-line no-undef
-importAll(__webpack_require__(868));
+// imports all image links, see https://webpack.js.org/guides/dependency-management/#context-module-api
+importAll(__webpack_require__(868)); // eslint-disable-line no-undef
 
 
+/**
+ * @typedef {Object} Project
+ * @property {number} id - Unique project id.
+ * @property {string} title - Project title i18n key.
+ * @property {string} description - Project description i18n key.
+ * @property {string} year - Year the project was mostlty developped.
+ * @property {string} imageFileName - Project image file name.
+ * @property {string} githubLink - Github link to the project source.
+ * @property {Array<string>} stack - Tech stack used in the project.
+ */
+
+
+/**
+ * Generates the Projects page and its cards.
+ * @returns {HTMLDivElement} Element containing the page's content.
+ */
 function loadProjects() {
     const wrapper = document.createElement("div");
     wrapper.classList.add("card-wrapper");
@@ -331,11 +410,16 @@ function loadProjects() {
     return wrapper;
 }
 
+/**
+ * Generates a card containing a project's data.
+ * @param {Project} project - The project's data.
+ * @returns {HTMLElement} Element of the card.
+ */
 function createCard(project) {
     const card = document.createElement("article");
     card.classList.add("card");
 
-    const imgSection = createImgSection(project);
+    const imgSection = createImgSection(project.imageFileName);
     card.appendChild(imgSection);
 
     const infoSection = createInfoSection(project);
@@ -344,18 +428,28 @@ function createCard(project) {
     return card;
 }
 
-function createImgSection(project) {
+/**
+ * Generates the image section of the card.
+ * @param {string} imageFileName - Filename of the project's image.
+ * @returns {HTMLDivElement} Element with the image.
+ */
+function createImgSection(imageFileName) {
     const container = document.createElement("div");
     container.classList.add("card-img-container");
 
     const img = document.createElement("img");
-    img.src = cache["./" + project.imageFileName];
+    img.src = cache["./" + imageFileName];
     img.loading = "lazy";
     container.appendChild(img);
 
     return container;
 }
 
+/**
+ * Generates the info section of the card.
+ * @param {Project} project - The project's data.
+ * @returns {HTMLDivElement} Element with data about the project.
+ */
 function createInfoSection(project) {
     const info = document.createElement("div");
     info.classList.add("card-info");
@@ -397,6 +491,10 @@ function createInfoSection(project) {
     return info;
 }
 
+/**
+ * Generates a button that opens the project's Github link.
+ * @returns {HTMLAnchorElement} Element of the button.
+ */
 function createGithubButton(uri) {
     const namespace = "http://www.w3.org/2000/svg";
 
@@ -451,8 +549,6 @@ navigationSelector.setAction((route) => router.navigateTo(route));
 const languageSelector = new Selector("lang-button", "lang");
 languageSelector.setAction((lang) => translator.changeLang(lang));
 languageSelector.setDefault(translator.lang);
-
-
 
 })();
 
