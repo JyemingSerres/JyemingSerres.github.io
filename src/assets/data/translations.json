@@ -7,8 +7,8 @@
         "001-title" : "Projection of 3D Shapes",
         "001-description" : "The goal of this exercise is to display 3D shapes onto a 2D screen. Using mouse and keyboard inputs, the user is able to traverse space to inspect objects at various angles.",
         "002-title" : "Portfolio Website",
-        "002-description" : "A single-page website to present my different personnal projects."
-},
+        "002-description" : "A single-page website to present my personnal projects."
+    },
     "fr" : {
         "nav-home" : "Accueil",
         "nav-projects" : "Projets",
@@ -17,6 +17,6 @@
         "001-title" : "Projection de formes 3D",
         "001-description" : "Le but de cet exercice est d'afficher des formes 3D sur un écran 2D. En utilisant la souris et le clavier, l'utilisateur peut parcourir l'espace afin d'examiner les objects sous différents angles.",
         "002-title" : "Site web portfolio",
-        "002-description" : "Un site web monopage pour présenter mes différents projets personnels"
+        "002-description" : "Un site web monopage pour présenter mes projets personnels"
     }
 }
