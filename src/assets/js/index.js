@@ -25,5 +25,3 @@ navigationSelector.setAction((route) => router.navigateTo(route));
 const languageSelector = new Selector("lang-button", "lang");
 languageSelector.setAction((lang) => translator.changeLang(lang));
 languageSelector.setDefault(translator.lang);
-
-

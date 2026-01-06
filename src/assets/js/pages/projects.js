@@ -10,12 +10,26 @@ const cache = {};
 function importAll(r) {
     r.keys().forEach((key) => (cache[key] = r(key)));
 }
-
-// imports all images links, see https://webpack.js.org/guides/dependency-management/#context-module-api
-// eslint-disable-next-line no-undef
-importAll(require.context("../../data/projects/images/", false, /\.(png|jpg|jpeg)$/));
+// imports all image links, see https://webpack.js.org/guides/dependency-management/#context-module-api
+importAll(require.context("../../data/projects/images/", false, /\.(png|jpg|jpeg)$/)); // eslint-disable-line no-undef
 
 
+/**
+ * @typedef {Object} Project
+ * @property {number} id - Unique project id.
+ * @property {string} title - Project title i18n key.
+ * @property {string} description - Project description i18n key.
+ * @property {string} year - Year the project was mostlty developped.
+ * @property {string} imageFileName - Project image file name.
+ * @property {string} githubLink - Github link to the project source.
+ * @property {Array<string>} stack - Tech stack used in the project.
+ */
+
+
+/**
+ * Generates the Projects page and its cards.
+ * @returns {HTMLDivElement} Element containing the page's content.
+ */
 export default function loadProjects() {
     const wrapper = document.createElement("div");
     wrapper.classList.add("card-wrapper");
@@ -28,11 +42,16 @@ export default function loadProjects() {
     return wrapper;
 }
 
+/**
+ * Generates a card containing a project's data.
+ * @param {Project} project - The project's data.
+ * @returns {HTMLElement} Element of the card.
+ */
 function createCard(project) {
     const card = document.createElement("article");
     card.classList.add("card");
 
-    const imgSection = createImgSection(project);
+    const imgSection = createImgSection(project.imageFileName);
     card.appendChild(imgSection);
 
     const infoSection = createInfoSection(project);
@@ -41,18 +60,28 @@ function createCard(project) {
     return card;
 }
 
-function createImgSection(project) {
+/**
+ * Generates the image section of the card.
+ * @param {string} imageFileName - Filename of the project's image.
+ * @returns {HTMLDivElement} Element with the image.
+ */
+function createImgSection(imageFileName) {
     const container = document.createElement("div");
     container.classList.add("card-img-container");
 
     const img = document.createElement("img");
-    img.src = cache["./" + project.imageFileName];
+    img.src = cache["./" + imageFileName];
     img.loading = "lazy";
     container.appendChild(img);
 
     return container;
 }
 
+/**
+ * Generates the info section of the card.
+ * @param {Project} project - The project's data.
+ * @returns {HTMLDivElement} Element with data about the project.
+ */
 function createInfoSection(project) {
     const info = document.createElement("div");
     info.classList.add("card-info");
@@ -94,6 +123,10 @@ function createInfoSection(project) {
     return info;
 }
 
+/**
+ * Generates a button that opens the project's Github link.
+ * @returns {HTMLAnchorElement} Element of the button.
+ */
 function createGithubButton(uri) {
     const namespace = "http://www.w3.org/2000/svg";
 

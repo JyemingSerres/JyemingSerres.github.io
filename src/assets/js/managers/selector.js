@@ -1,20 +1,33 @@
 export default class Selector {
+    /**
+     * @param {string} htmlClass - The HTML class unique to the set of elements to select from.
+     * @param {string} dataKey - The key to the relevant data of the elements.
+     */
     constructor(htmlClass, dataKey) {
         this.navElements = document.querySelectorAll("." + htmlClass);
         this.selected = this.navElements.values().find((element) => element.classList.contains("selected"));
         this.dataKey = dataKey;
     }
 
+    /**
+     * Sets the action for when an element is clicked.
+     * @param {function} action - The function to call with the selected element's data.
+     * @returns {void}
+     */
     setAction(action) {
         for (const navElement of this.navElements) {
-            const data = navElement.dataset[this.dataKey];
-            navElement.addEventListener("click", (event) => {
-                this.#changeSelected(event.target)
-                action(data);
+            navElement.addEventListener("click", () => {
+                this.#changeSelected(navElement)
+                action(navElement.dataset[this.dataKey]);
             });
         }
     }
 
+    /**
+     * Selects the element matching the value if nothing is selected.
+     * @param {string} val - The value to match.
+     * @returns {void}
+     */
     setDefault(val) {
         if (this.selected) return;
 
@@ -26,15 +39,12 @@ export default class Selector {
         }
     }
 
-    getOptions() {
-        const options = new Set();
-
-        for (const navElement of this.navElements)
-            options.add(navElement.dataset[this.dataKey])
-
-        return options
-    }
-
+    /**
+     * Changes the selected element.
+     * @private
+     * @param {Element} target - The element to be selected.
+     * @returns {void}
+     */
     #changeSelected(target) {
         if (target === this.selected) return;
 
