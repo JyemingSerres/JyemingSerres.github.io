@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "lint": "eslint ./",
+    "lint": "eslint ./src",
     "build": "webpack --config webpack.dev.js",
     "build:prod": "webpack --config webpack.prod.js",
     "start": "webpack serve --open --config webpack.dev.js",
