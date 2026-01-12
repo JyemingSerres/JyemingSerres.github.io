@@ -1,5 +1,6 @@
 # start of custom gitignore rules
 docsdev/**
+stats.json
 # end of custom gitignore rules
 
 # Logs

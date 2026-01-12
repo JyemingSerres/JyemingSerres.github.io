@@ -4,7 +4,8 @@
     "build": "webpack --config webpack.dev.js",
     "build:prod": "webpack --config webpack.prod.js",
     "start": "webpack serve --open --config webpack.dev.js",
-    "start:prod": "webpack serve --open --config webpack.prod.js"
+    "start:prod": "webpack serve --open --config webpack.prod.js",
+    "chunks" : "webpack --profile --json > stats.json"
   },
   "author": "Jye-Ming Serres",
   "devDependencies": {
