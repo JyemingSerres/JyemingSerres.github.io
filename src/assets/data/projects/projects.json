@@ -4,7 +4,7 @@
         "title" : "001-title",
         "description" : "001-description",
         "year" : "2025",
-        "imageFileName" : "projection-of-3D-shapes.png",
+        "imageFileName" : "projection-of-3D-shapes.webp",
         "githubLink" : "https://github.com/JyemingSerres/projection-of-3D-shapes",
         "stack" : ["Python"]
     },
@@ -13,7 +13,7 @@
         "title" : "002-title",
         "description" : "002-description",
         "year" : "2026",
-        "imageFileName" : "portfolio-website.png",
+        "imageFileName" : "portfolio-website.webp",
         "githubLink" : "https://github.com/JyemingSerres/JyemingSerres.github.io",
         "stack" : ["HTML", "CSS", "JS", "Webpack"]
     }

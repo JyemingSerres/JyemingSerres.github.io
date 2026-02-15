@@ -11,7 +11,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        test: /\.(png|svg|jpg|jpeg|gif|webp)$/i,
         type: 'asset/resource',
         generator: {
           filename: 'assets/images/[hash][ext][query]',
@@ -24,7 +24,7 @@ module.exports = {
     new HTMLWebpackPlugin({
       filename: "index.html",
       template: path.resolve(__dirname, "src/index.html"),
-      favicon: path.resolve(__dirname, "src/assets/images/favicon.png"),
+      favicon: path.resolve(__dirname, "src/assets/images/favicon.webp"),
       chunks: ["index"],
     }),
   ],

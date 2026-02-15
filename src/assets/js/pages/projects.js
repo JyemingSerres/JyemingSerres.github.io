@@ -11,7 +11,7 @@ function importAll(r) {
     r.keys().forEach((key) => (cache[key] = r(key)));
 }
 // imports all image links, see https://webpack.js.org/guides/dependency-management/#context-module-api
-importAll(require.context("../../data/projects/images/", false, /\.(png|jpg|jpeg)$/)); // eslint-disable-line no-undef
+importAll(require.context("../../data/projects/images/", false, /\.(png|jpg|jpeg|webp)$/)); // eslint-disable-line no-undef
 
 
 /**
