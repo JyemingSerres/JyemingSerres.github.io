@@ -50,6 +50,13 @@ a {
     height: fit-content;
 }
 
+.navbar-lang {
+    padding: 0;
+    display: flex;
+    list-style: none;
+    gap: 5px;
+}
+
 .lang-button {
     display: inline;
     cursor: pointer;
@@ -57,6 +64,12 @@ a {
 
 .lang-button.selected {
     color: var(--theme-color-1);
+    border-bottom: 2px solid var(--theme-color-1);
+}
+
+.nav-link {
+    display: inline;
+    cursor: pointer;
 }
 
 .nav-link.selected {
@@ -68,13 +81,7 @@ a {
     padding: 0;
     display: flex;
     list-style: none;
-    justify-content: right;
     gap: 1.2rem;
-}
-
-.nav-link {
-    display: inline;
-    cursor: pointer;
 }
 
 .main {
