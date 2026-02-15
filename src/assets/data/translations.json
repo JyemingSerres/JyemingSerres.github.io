@@ -15,7 +15,7 @@
         "home-status" : "Étudiant en génie logiciel à Polytechnique Montréal",
         "github-proj-button-text" : "code source",
         "001-title" : "Projection de formes 3D",
-        "001-description" : "Le but de cet exercice est d'afficher des formes 3D sur un écran 2D. En utilisant la souris et le clavier, l'utilisateur peut parcourir l'espace afin d'examiner les objects sous différents angles.",
+        "001-description" : "Le but de cet exercice est d'afficher des formes 3D sur un écran 2D. Avec le clavier et la souris, l'utilisateur peut parcourir l'espace afin d'observer les objects sous différents angles.",
         "002-title" : "Site web portfolio",
         "002-description" : "Un site web monopage pour présenter mes projets personnels"
     }
