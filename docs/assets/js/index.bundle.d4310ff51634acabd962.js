@@ -9,29 +9,21 @@ module.exports = __webpack_require__.p + "assets/images/b2596fbcb8ffd1d70588.jpg
 
 /***/ }),
 
-/***/ 170:
+/***/ 299:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
-module.exports = __webpack_require__.p + "assets/images/42faa722ff22dfd1a095.png";
+module.exports = __webpack_require__.p + "assets/images/6c520e73a59cf17cc2b9.webp";
 
 /***/ }),
 
-/***/ 666:
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-"use strict";
-module.exports = __webpack_require__.p + "assets/images/c919b2c0f6cc0f913c3c.png";
-
-/***/ }),
-
-/***/ 868:
+/***/ 819:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 var map = {
 	"./default.jpg": 13,
-	"./portfolio-website.png": 666,
-	"./projection-of-3D-shapes.png": 170
+	"./portfolio-website.webp": 299,
+	"./projection-of-3D-shapes.webp": 947
 };
 
 
@@ -52,7 +44,15 @@ webpackContext.keys = function webpackContextKeys() {
 };
 webpackContext.resolve = webpackContextResolve;
 module.exports = webpackContext;
-webpackContext.id = 868;
+webpackContext.id = 819;
+
+/***/ }),
+
+/***/ 947:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+module.exports = __webpack_require__.p + "assets/images/814201827e5cd138099c.webp";
 
 /***/ })
 
@@ -236,7 +236,7 @@ class Selector {
 }
 
 ;// ./src/assets/data/translations.json
-const translations_namespaceObject = /*#__PURE__*/JSON.parse('{"en":{"nav-home":"Home","nav-projects":"Projects","home-status":"Software engineering student at Polytechnique Montréal","github-proj-button-text":"source code","001-title":"Projection of 3D Shapes","001-description":"The goal of this exercise is to display 3D shapes onto a 2D screen. Using mouse and keyboard inputs, the user is able to traverse space to inspect objects at various angles.","002-title":"Portfolio Website","002-description":"A single-page website to present my personnal projects."},"fr":{"nav-home":"Accueil","nav-projects":"Projets","home-status":"Étudiant en génie logiciel à Polytechnique Montréal","github-proj-button-text":"code source","001-title":"Projection de formes 3D","001-description":"Le but de cet exercice est d\'afficher des formes 3D sur un écran 2D. En utilisant la souris et le clavier, l\'utilisateur peut parcourir l\'espace afin d\'examiner les objects sous différents angles.","002-title":"Site web portfolio","002-description":"Un site web monopage pour présenter mes projets personnels"}}');
+const translations_namespaceObject = /*#__PURE__*/JSON.parse('{"en":{"nav-home":"Home","nav-projects":"Projects","home-status":"Software engineering student at Polytechnique Montréal","github-proj-button-text":"source code","001-title":"Projection of 3D Shapes","001-description":"The goal of this exercise is to display 3D shapes onto a 2D screen. Using mouse and keyboard inputs, the user is able to traverse space to inspect objects at various angles.","002-title":"Portfolio Website","002-description":"A single-page website to present my personnal projects."},"fr":{"nav-home":"Accueil","nav-projects":"Projets","home-status":"Étudiant en génie logiciel à Polytechnique Montréal","github-proj-button-text":"code source","001-title":"Projection de formes 3D","001-description":"Le but de cet exercice est d\'afficher des formes 3D sur un écran 2D. Avec le clavier et la souris, l\'utilisateur peut parcourir l\'espace afin d\'observer les objects sous différents angles.","002-title":"Site web portfolio","002-description":"Un site web monopage pour présenter mes projets personnels"}}');
 ;// ./src/assets/js/managers/translator.js
 
 
@@ -364,7 +364,7 @@ function loadHome() {
 }
 
 ;// ./src/assets/data/projects/projects.json
-const projects_namespaceObject = /*#__PURE__*/JSON.parse('[{"id":1,"title":"001-title","description":"001-description","year":"2025","imageFileName":"projection-of-3D-shapes.png","githubLink":"https://github.com/JyemingSerres/projection-of-3D-shapes","stack":["Python"]},{"id":2,"title":"002-title","description":"002-description","year":"2026","imageFileName":"portfolio-website.png","githubLink":"https://github.com/JyemingSerres/JyemingSerres.github.io","stack":["HTML","CSS","JS","Webpack"]}]');
+const projects_namespaceObject = /*#__PURE__*/JSON.parse('[{"id":1,"title":"001-title","description":"001-description","year":"2025","imageFileName":"projection-of-3D-shapes.webp","githubLink":"https://github.com/JyemingSerres/projection-of-3D-shapes","stack":["Python"]},{"id":2,"title":"002-title","description":"002-description","year":"2026","imageFileName":"portfolio-website.webp","githubLink":"https://github.com/JyemingSerres/JyemingSerres.github.io","stack":["HTML","CSS","JS","Webpack"]}]');
 ;// ./src/assets/js/pages/projects.js
 
 
@@ -379,7 +379,7 @@ function importAll(r) {
     r.keys().forEach((key) => (cache[key] = r(key)));
 }
 // imports all image links, see https://webpack.js.org/guides/dependency-management/#context-module-api
-importAll(__webpack_require__(868)); // eslint-disable-line no-undef
+importAll(__webpack_require__(819)); // eslint-disable-line no-undef
 
 
 /**
